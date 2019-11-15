@@ -116,8 +116,7 @@ class KekerasanController extends Controller
     //controller APi
     public function kekerasan(Kekerasan $kekerasan)
     {
-        $kekerasan = $kekerasan->orderBy('kekerasan_nama', 'ASC')
-            ->get();
+        $kekerasan = $kekerasan->get();
 
         $response = fractal()
             ->collection($kekerasan)

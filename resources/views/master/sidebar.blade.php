@@ -30,14 +30,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('pengaduan.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>Pengaduan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('map.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-map"></i>
                         <p>Peta Pengaduan</p>
                     </a>

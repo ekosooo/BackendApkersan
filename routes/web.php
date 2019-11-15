@@ -20,3 +20,6 @@ Route::resource('kasus', 'KasusController');
 Route::get('kasus/create', 'KasusController@pindah')->name('kasus.pindah');
 Route::resource('kekerasan', 'KekerasanController');
 Route::get('kekerasan/create', 'KekerasanController@pindah')->name('kekerasan.pindah');
+Route::get('/pengaduan/detail/{id}', 'PengaduanController@detail')->name('pengaduan.detail');
+Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan.index');
+Route::get('/map', 'MapController@index')->name('map.index');

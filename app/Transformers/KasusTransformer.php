@@ -12,7 +12,7 @@ class KasusTransformer extends TransformerAbstract
         return[
             'kasus_id'          => $kasus->kasus_id,
             'kasus_nama'        => $kasus->kasus_nama,
-            'kasus_deksripsi'   => $kasus->kasus_deskripsi,
+            'kasus_deskripsi'   => $kasus->kasus_deskripsi,
         ];
     }
 }
