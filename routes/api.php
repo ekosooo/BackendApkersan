@@ -22,3 +22,7 @@ Route::get('/kekerasan', 'KekerasanController@kekerasan');
 Route::post('/register/user', 'UserController@RegisterUser');
 Route::post('/login/user', 'UserController@LoginUser');
 Route::post('/pengaduan', 'PengaduanController@store');
+Route::get('/pengaduan/{id}', 'PengaduanController@show');
+Route::post('/user/token/{id}', 'UserController@SaveTokenFCM');
+Route::post('/user/update/{id}', 'UserController@updateProfile');
+

@@ -51,7 +51,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /.card-header -->
                             <!-- form start -->
                             @foreach($pengaduan as $value)
-                                <form action="" method="post">
+                                <form action="{{route('pengaduan.verifikasi', $value->pengaduan_id)}}" method="POST">
+                                    {{method_field('put')}}
+                                    {{csrf_field()}}
                                     <div class="card-body">
 
                                         {{--Data Umum--}}
@@ -64,7 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">No Tiket</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->ticket_number}}">
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="ticket_number" value="{{$value->ticket_number}}">
                                                 </div>
 
                                                 <div class="form-group">
@@ -75,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <label for="exampleInputEmail1">Jenis Kasus</label>
-                                                        <input type="text" class="form-control" id="exampleInputEmail1"  value="{{$value->kasus_nama}}">
+                                                        <input type="text" class="form-control" id="exampleInputEmail1" name="kasus_nama" value="{{$value->kasus_nama}}">
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <label for="exampleInputEmail1">Bentuk Kekerasan</label>
@@ -164,7 +166,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </div>
 
-
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Alamat</label>
                                                     <textarea name="" id="" cols="30" rows="5" class="form-control">{{$value->alamat_kejadian}}</textarea>
@@ -194,15 +195,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="col-sm-8">
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1">Status</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option>Menunggu</option>
-                                                        <option>Diterima</option>
-                                                        <option>Ditolak</option>
+                                                    <select class="form-control" name="status_pengaduan">
+                                                        <option value="Menunggu" {{ ( $value->status_pengaduan == 'Menunggu') ? 'selected' : '' }}>Menunggu</option>
+                                                        <option value="Diterima" {{ ( $value->status_pengaduan == 'Diterima') ? 'selected' : '' }}>Diterima</option>
+                                                        <option value="Ditolak"  {{ ( $value->status_pengaduan == 'Ditolak') ? 'selected' : '' }}>Ditolak</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Tindak Lanjut</label>
-                                                    <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                                                    <textarea name="tindak_lanjut" cols="30" rows="5" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,6 +214,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
 
                                         <div class="form-group">
+                                            <input type="hidden" name="fcm_token" value="{{$value->fcm_token}}">
                                             <button type="submit" class="btn btn-primary" style="float: right;">Verifikasi Pengaduan</button>
                                         </div>
 

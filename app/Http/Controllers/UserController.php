@@ -6,9 +6,39 @@ use App\Transformers\UserTransfomer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function LoginAdmin(Request $request)
+    {
+        if (Auth::attempt([
+            'user_email'        => $request->email,
+            'password'          => $request->password,
+            'role'              => $request->role,
+        ])){
+            return redirect('/');
+        }else{
+            return redirect('/login');
+        }
+    }
+
+    public function SaveTokenFCM(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->update([
+            'fcm_token'      => $request->fcm_token,
+        ]);
+
+        return response()->json($user, 201);
+    }
+
     public function RegisterUser(Request $request, User $user)
     {
         $user = $user->create([
@@ -31,7 +61,6 @@ class UserController extends Controller
 
     public function LoginUser(Request $request, User $user)
     {
-
         if (!Auth::attempt([
             'user_email'        => $request->user_email,
             'password'          => $request->password,
@@ -52,4 +81,24 @@ class UserController extends Controller
 
         return response()->json($message+$response, 201);
     }
+
+    public function updateProfile(Request $request, $id)
+    {
+        $user = USER::find($id);
+        $user->update([
+            'user_nama'      => $request->user_nama,
+            'user_alamat'    => $request->user_alamat,
+            'user_phone'     => $request->user_phone,
+            'user_email'     => $request->user_email
+        ]);
+
+        $message = [
+            "eror"      => "false",
+            "data"      => $user,
+        ];
+
+        return response()->json($message, 201);
+    }
+
+
 }

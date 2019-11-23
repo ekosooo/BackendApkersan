@@ -86,6 +86,8 @@
       <path value="$PROJECT_DIR$/vendor/league/fractal" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-fractal" />
       <path value="$PROJECT_DIR$/vendor/spatie/fractalistic" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

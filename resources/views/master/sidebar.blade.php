@@ -14,7 +14,7 @@
                 <img src="{{ asset('backend/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Eko Alfianto</a>
+                <a href="#" class="d-block">{{auth()->user()->user_nama}}</a>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('kekerasan.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>Kekerasan</p>
                     </a>

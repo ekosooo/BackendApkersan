@@ -23,3 +23,7 @@ Route::get('kekerasan/create', 'KekerasanController@pindah')->name('kekerasan.pi
 Route::get('/pengaduan/detail/{id}', 'PengaduanController@detail')->name('pengaduan.detail');
 Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan.index');
 Route::get('/map', 'MapController@index')->name('map.index');
+Route::put('/pengaduan/verifikasi/{id}', 'PengaduanController@verifikasi')->name('pengaduan.verifikasi');
+
+Route::get('/login', 'UserController@login');
+Route::post('/admin/login', 'UserController@LoginAdmin')->name('login');
