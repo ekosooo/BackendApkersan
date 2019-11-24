@@ -44,6 +44,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-sm-1"></div>
 
                     <div class="col-sm-10">
+                        @if(session()->has('success'))
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Data Pengaduan Masuk</h3>

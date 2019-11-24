@@ -45,13 +45,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>11</h3>
+                                <h3>{{$pengaduan}}</h3>
                                 <p>Pengaduan</p>
                             </div>
                             <div class="icon">
                                 <i class="nav-icon fas fa-clipboard-list"></i>
                             </div>
-                            <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('pengaduan.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>2</h3>
+                                <h3>{{$user}}</h3>
                                 <p>Akun Terdaftar</p>
                             </div>
                             <div class="icon">
@@ -75,13 +75,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>6</h3>
+                                <h3>{{$kekerasan}}</h3>
                                 <p>Bentuk Kekerasan</p>
                             </div>
                             <div class="icon">
-                                <i class="nav-icon fas fa-hammer"></i>
+                                <i class="nav-icon fas fa-hand-rock"></i>
                             </div>
-                            <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('kekerasan.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -90,13 +90,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- kategori -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>5</h3>
+                                <h3>{{$kasus}}</h3>
                                 <p>Jenis Kasus</p>
                             </div>
                             <div class="icon">
                                 <i class="nav-icon fas fa-layer-group"></i>
                             </div>
-                            <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('kasus.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -113,18 +113,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <button type="button" class="btn btn-tool" data-widget="collapse">
                                         <i class="fas fa-minus"></i>
                                     </button>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fas fa-wrench"></i>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <a href="#" class="dropdown-item">Action</a>
-                                            <a href="#" class="dropdown-item">Another action</a>
-                                            <a href="#" class="dropdown-item">Something else here</a>
-                                            <a class="dropdown-divider"></a>
-                                            <a href="#" class="dropdown-item">Separated link</a>
-                                        </div>
-                                    </div>
                                     <button type="button" class="btn btn-tool" data-widget="remove">
                                         <i class="fas fa-times"></i>
                                     </button>
@@ -132,12 +120,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-8">
+                                <div class="row" >
+                                    <div class="col-md-8 text-center">
                                         <h4 class="text-center">
                                             <strong>Pengaduan Kekerasan</strong>
                                         </h4>
-                                        <div style="width: 550px;height: 300px" class="text-center">
+                                        <div style="width: 550px; height: 300px">
                                             <canvas id="myChart"></canvas>
                                         </div>
                                         <!-- /.chart-responsive -->
@@ -178,8 +166,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         data: {
             labels: ["KDRT", "Anak", "Perempuan", "Perdagangan Orang", "Tenaga Kerja"],
             datasets: [{
-                // label: '# of Votes',
-                data: [5, 1, 3, 1, 1],
+                label: 'Jumlah Kasus',
+                data: [{{$kdrt}}, {{$anak}}, {{$perempuan}}, {{$perdagangan}}, {{$kerja}}],
                 backgroundColor: [
                     'rgb(0, 123, 255)',
                     'rgb(214, 52, 67)',

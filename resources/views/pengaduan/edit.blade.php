@@ -203,7 +203,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Tindak Lanjut</label>
-                                                    <textarea name="tindak_lanjut" cols="30" rows="5" class="form-control"></textarea>
+                                                    <textarea name="tindak_lanjut" cols="30" rows="5" class="form-control">{{$value->tindak_lanjut}}</textarea>
                                                 </div>
                                             </div>
                                         </div>

@@ -88,7 +88,7 @@ class PengaduanController extends Controller
         curl_exec($ch);
         curl_close($ch);
 
-        return redirect('/pengaduan');
+        return redirect('/pengaduan')->with('success', 'Data berhasil diverifikasi');
     }
 
     //api

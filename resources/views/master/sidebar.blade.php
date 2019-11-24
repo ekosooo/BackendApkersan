@@ -52,7 +52,7 @@
 
                 <li class="nav-item">
                     <a href="{{route('kekerasan.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-layer-group"></i>
+                        <i class="nav-icon fas fa-hand-rock"></i>
                         <p>Kekerasan</p>
                     </a>
                 </li>
@@ -67,13 +67,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('index.admin')}}" class="nav-link">
                                 <i class="fas fa-user nav-icon"></i>
                                 <p>Admin</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('index.pengguna')}}" class="nav-link">
                                 <i class="fas fa-users nav-icon"></i>
                                 <p>Pengguna</p>
                             </a>
@@ -82,7 +82,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('admin.logout')}}" class="nav-link">
                         <i class="nav-icon fas fa-door-open"></i>
                         <p>Keluar</p>
                     </a>

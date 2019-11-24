@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Apkersan | Kasus</title>
+    <title>Apkersan | Pengguna</title>
 
     @include('master/style')
 
@@ -30,6 +30,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-header">
             <div class="container-fluid">
 
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                @yield('content')
+
                 <div class="row">
                     <div class="col-sm-1"></div>
 
@@ -42,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data Kasus</h3>
+                                <h3 class="card-title">Data Pengguna</h3>
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -54,26 +63,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div>
                                 </div>
 
-                                <a href="{{route('kasus.pindah')}}" class="btn btn-primary btn-sm" style="float: right; margin-top: 10px">Tambah Data</a>
-
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover">
                                     <tr>
                                         <th>No</th>
-                                        <th>Kasus</th>
-                                        <th>Deskripsi</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Telepon</th>
+                                        <th>Jenis Kelamin</th>
                                         <th>Tindakan</th>
                                     </tr>
-                                    @foreach($kasus as $value)
+                                    @foreach($pengguna as $value)
                                         <tr>
                                             <td>{{++$i}}</td>
-                                            <td>{{$value->kasus_nama}}</td>
-                                            <td>{{$value->kasus_deskripsi}}</td>
+                                            <td>{{$value->user_nama}}</td>
+                                            <td>{{$value->user_email}}</td>
+                                            <td>{{$value->user_phone}}</td>
+                                            <td>{{$value->user_jk}}</td>
                                             <td>
-                                                <a href="{{route('kasus.show', $value->kasus_id)}}" class="btn btn-success btn-sm">Edit</a>
-                                                <a href="" class="btn btn-danger btn-sm" data-kasus_id="{{ $value->kasus_id }}" data-toggle="modal" data-target="#Modal-hapus">Delete</a>
+                                                <a href="{{route('show.pengguna', $value->user_id)}}" class="btn btn-primary btn-sm">Lihat</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -82,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /.card-body -->
                             <div class="card-footer clearfix">
                                 <ul class="pagination pagination-sm m-0 float-right">
-                                    {{ $kasus->links() }}
+                                    {{ $pengguna->links() }}
                                 </ul>
                             </div>
                         </div>
@@ -94,49 +104,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                @yield('content')
-
-
-            </div><!-- /.container-fluid -->
-        </div>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
-    <!-- Modal static-->
-    <div class="modal fade" id="Modal-hapus" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hapus Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{{route('kasus.destroy', 'test')}}" method="post">
-                        {{method_field('delete')}}
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <input type="hidden" name="kasus_id" id="kasus_id" value="">
-                                <p>Apakah anda yakin menghapus data ini ?</p>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary waves-effect waves-light ">Hapus</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!-- Main Footer -->
     @include('master/footer')
@@ -145,17 +115,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('master/script')
-<script>
-    $('#Modal-hapus').on('show.bs.modal', function (event) {
-        console.log('Modal Opened');
-        var button = $(event.relatedTarget)
-        var kasus_id = button.data('kasus_id')
-
-        var modal = $(this)
-        modal.find('.modal-body #kasus_id').val(kasus_id);
-    })
-</script>
 </body>
 </html>
+
 
 
