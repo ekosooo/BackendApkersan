@@ -44,6 +44,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{route('berita.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>Berita</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{route('kasus.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>Kasus</p>

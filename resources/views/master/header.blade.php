@@ -26,7 +26,7 @@
                                 {{ csrf_field() }}
                                 <a href="" class="dropdown-item">
                                     <input type="hidden" name="notif_id" value="{{$notification->id}}">
-                                    <b style="font-size: 13px">{{$notification->data['nama']}}</b><span class="float-right text-muted text-sm"><button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></button></span>
+                                    <b style="font-size: 13px">{{$notification->data['nama']}}</b><span class="float-right text-muted text-sm"><button type="submit" class="btn btn-sm"><i class="fas fa-eye"></i></button></span>
                                     <p style="font-size: 13px">{{$notification->data['pengaduan']}}</p>
                                 </a>
                             </form>

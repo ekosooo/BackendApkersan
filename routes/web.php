@@ -36,6 +36,14 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/admin/register', 'UserController@RegisterAdmin')->name('admin.store');
     Route::delete('/admin/delete', 'UserController@destroyAdmin')->name('admin.destroy');
 
+    Route::get('/berita/index', 'BeritaController@index')->name('berita.index');
+    Route::get('/berita/create', 'BeritaController@create')->name('berita.create');
+    Route::post('/berita/store', 'BeritaController@store')->name('berita.store');
+    Route::get('/berita/{id}', 'BeritaController@show')->name('berita.show');
+    Route::patch('/berita/{id}', 'BeritaController@update')->name('berita.update');
+    Route::delete('/berita/destroy', 'BeritaController@destroy')->name('berita.destroy');
+
+    Route::get('/search/pengadu', 'PengaduanController@search')->name('pengaduan.search');
 });
 
 Route::get('/login', 'UserController@login')->name('login');

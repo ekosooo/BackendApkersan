@@ -25,4 +25,4 @@ Route::post('/pengaduan', 'PengaduanController@store');
 Route::get('/pengaduan/{id}', 'PengaduanController@show');
 Route::post('/user/token/{id}', 'UserController@SaveTokenFCM');
 Route::post('/user/update/{id}', 'UserController@updateProfile');
-
+Route::get('/berita', 'BeritaController@berita');

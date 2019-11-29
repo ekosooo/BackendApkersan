@@ -13,6 +13,22 @@ use Notification;
 class PengaduanController extends Controller
 {
 
+    public function search(Request $request)
+    {
+        $i = 0;
+        $search     = $request->get('search');
+        $data       = DB::table('pengaduan')
+            ->join('user', 'pengaduan.user_id', '=', 'user.user_id')
+            ->join('kasus', 'pengaduan.kasus_id', '=', 'kasus.kasus_id')
+            ->join('kekerasan', 'pengaduan.kekerasan_id', '=', 'kekerasan.kekerasan_id')
+            ->select('ticket_number', 'user_nama', 'kasus_nama', 'kekerasan_nama', 'pengaduan_id', 'status_pengaduan')
+            ->where('ticket_number', 'LIKE', '%' .$search. '%')
+            ->paginate(5);
+
+        return view('pengaduan.index', ['pengaduan' => $data, 'i' => $i]);
+    }
+
+
     public function index()
     {
         $pengaduan = DB::table('pengaduan')
@@ -180,7 +196,7 @@ class PengaduanController extends Controller
             ->orderBy("pengaduan_id", "DESC")
             ->get();
 
-        $aduan          = Pengaduan::where('status_pengaduan', 'Menunggu')->where('user_id', $id)->count();
+        $aduan          = Pengaduan::where('user_id', $id)->count();
         $ditolak        = Pengaduan::where('status_pengaduan', 'Ditolak')->where('user_id', $id)->count();
         $diterima       = Pengaduan::where('status_pengaduan', 'Diterima')->where('user_id', $id)->count();
 
